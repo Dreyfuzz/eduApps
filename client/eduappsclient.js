@@ -33,9 +33,9 @@ Template.apps.events({
   }
 });
 
-Template.apps.helpers({
-  submitter : function(app){
-    submitter = Meteor.user.findOne({"_id" : app.submittedBy});
-    return submitter.name;
-  }
-});
+// Template.apps.helpers({
+//   submitter : function(app){
+//     submitter = Meteor.user.findOne({"_id" : app.submittedBy});
+//     return submitter.name;
+//   }
+// });
