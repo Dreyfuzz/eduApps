@@ -12,10 +12,7 @@ Template.apps.events({
 
     appUrl.search(/https:\/\/itunes.apple.com\/us\/app/);
 
-    Meteor.call("addApp",appName,appUrl
-      // ,function(error,appId){
-      // console.log('added app with Id..'+appId);}
-      );
+    Meteor.call("addApp",appName,appUrl);
     document.getElementById("new_app_name").value ="";
     document.getElementById("new_app_url").value ="";
   },
@@ -36,10 +33,6 @@ Template.apps.events({
   }
 });
 
-// Template.app.rendered = function(){
-//   $('.approved').tooltip(); //initialize all tooltips in this template
-// };
-
 Template.apps.helpers({
   submitter : function(app){
     submitter = Meteor.user.findOne({"_id" : app.submittedBy});
@@ -53,14 +46,3 @@ Template.nav.events({
     Meteor.call("createAdmin",Meteor.user());
   }
 });
-
-// Template.nav.helpers({
-//   adminExists : function(){
-//     if (Meteor.users.count({roles: "admin"}) < 1){
-//       return false;
-//     }
-//     else {
-//       return true;
-//     }
-//   }
-// });

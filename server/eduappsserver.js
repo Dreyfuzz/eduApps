@@ -30,12 +30,5 @@ Meteor.methods({
 	rejectApp : function(appId){
 		console.log('Rejecting App');
 		Apps.update(appId, {$set: {approval: false}});
-	},
-
-	createAdmin : function(){
-	   var admin = Meteor.users.findOne({"services.google.email": "mdreyfus@ctkschool.org"});
-	   console.log("Found " + admin.profile.name);
-	   Meteor.users.update(admin._id, {$set: {roles:['admin']}});
-	   AuthManager.addUsersToRoles(admin._id,admin.roles);
 	}
 });
