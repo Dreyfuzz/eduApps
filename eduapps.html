@@ -8,7 +8,7 @@
 			<div class="container">
 				<a class="brand" href="/">CTK EduApps</a>
 				<ul class="nav pull-right">
-					{{> nav}}
+					<li>{{> loginButtons}}</li>
 				</ul>
 			</div> 
 		</div>
@@ -16,13 +16,6 @@
   {{> header}}
   {{> apps}}
 </body>
-
-<template name="nav">
-<!-- 	{{#unless adminExists}}
- -->		<li class="createAdmin"><a href="">Create Admin</a></li>
-	<!-- {{/unless}} -->
-	<li>{{> loginButtons}}</li>
-</template>
 
 <template name="header">
   <h1>Is this iPad App educational?</h1>
@@ -97,7 +90,6 @@
 			{{else}}
 				<td class="reject"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>			
 			{{/if}}
-
 		{{/if}}
 	</tr>
 </template>
