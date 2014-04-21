@@ -1,0 +1,8 @@
+validate app url: works but doesn't display help text
+green and red approval icons:done
+hide approval and removal links from users: done
+show approved or rejected to users:done
+collect submitter email: submitter ID is collected, cannot yet display
+restrict to users @ctkschool: done
+require sign in to submit:done
+check for uniqueness

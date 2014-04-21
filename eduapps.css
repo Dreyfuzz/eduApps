@@ -1,0 +1,66 @@
+/* CSS declarations go here */
+
+/*.login-display-name{color:white;}
+.login-button{background-color: white;}*/
+
+#main {
+	padding-top: 20px;
+}
+
+.remove {
+	padding-right: 20px;
+}
+
+.remove a:link {color:black;}
+.remove a:visited {color:black;}
+
+/*Styles for User view*/
+.glyphicon-ok {
+	color:limegreen;
+	font-size: 2em;
+}
+
+.glyphicon-remove {
+	color:tomato;
+	font-size: 2em;
+}
+
+.glyphicon-refresh {
+	font-size: 2em;
+	color:cornflowerblue;
+}
+
+.remove .glyphicon-remove{
+	color:black;
+	font-size: 1em;
+}
+
+td {
+	padding:5px;
+}
+
+#login {
+	margin-left: 50px;
+	margin-bottom: 20px;
+}
+
+/*Styles for admin view*/
+.approve {
+	font-size: .5em;
+}
+
+.approved {
+	font-size: 1em;
+}
+
+.reject {
+	font-size: .5em;
+}
+
+.rejected {
+	font-size: 1em;
+}
+
+.pending {
+	font-size: 1em;
+}

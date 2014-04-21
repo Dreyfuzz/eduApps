@@ -1,0 +1,103 @@
+<head>
+  <title>eduApps</title>
+</head>
+
+<body>
+	<div class="navbar navbar-static-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">CTK EduApps</a>
+				<ul class="nav pull-right">
+					{{> nav}}
+				</ul>
+			</div> 
+		</div>
+  	</div>
+  {{> header}}
+  {{> apps}}
+</body>
+
+<template name="nav">
+<!-- 	{{#unless adminExists}}
+ -->		<li class="createAdmin"><a href="">Create Admin</a></li>
+	<!-- {{/unless}} -->
+	<li>{{> loginButtons}}</li>
+</template>
+
+<template name="header">
+  <h1>Is this iPad App educational?</h1>
+</template>
+
+<template name="apps">
+	{{#if currentUser}}
+	<form id="new_app">
+	   	<div class="control-group">
+	   		<div class="controls">
+		   		<input type="text" name="name" id="new_app_name" placeholder="Enter app name">
+		   	   	<input type="text"
+		   	   	  pattern="^(https?:\/\/)?itunes.apple.com\/us\/app\S*$"
+		   	   	  data-validation-pattern-message="Must be a valid app store link"
+		   	   	  name="app store link" id="new_app_url"
+		   	   	  placeholder="Paste App store link">
+		   	   	<input type="submit" value="Submit for Review">
+		   	    <p class="help-block"></p>
+			</div>
+	   	</div>
+  	</form>
+  	{{else}}
+  	<button type="button" class="btn btn-primary" id="login">Log in to submit new apps!</button>
+  	{{/if}}
+
+  <table>
+	  {{#each apps}}
+			{{>app}}
+	  {{/each}}
+  </table>
+</template>
+
+<template name="app">
+	<tr id="{{_id}}" class="app">
+<!-- __________________________________removing apps________________________________-->
+		{{#if isInRole 'admin'}}
+			<td class="remove">
+				<a href=""><i class="glyphicon glyphicon-remove"></i></a>
+			</td>
+		{{/if}}
+
+		<td><a href="{{url}}" target="_blank">{{name}}</a></td>
+
+<!-- ______________________________user approval display____________________________-->
+		{{#unless isInRole 'admin'}}
+			<td>
+				{{#if $eq approval true}}
+					<i class="glyphicon glyphicon-ok" data-toggle="tooltip" title="App Approved!" data-placement="auto"></i>
+				{{/if}}
+				{{#if $eq approval false}}
+					<i class="glyphicon glyphicon-remove" data-toggle="tooltip" title="App is not educational!" data-placement="auto"></i>
+				{{/if}}
+				{{#if $eq approval 'pending'}}
+					<i class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="App is Pending Review." data-placement="auto"></i>
+				{{/if}}
+			</td>
+		{{/unless}}
+
+<!-- ______________________________admin approval display____________________________-->
+		{{#if isInRole 'admin'}}
+			<td>{{submittedBy}}</td>
+			{{#if $eq approval true}}
+				<td class="approved"><a href=""><i class="glyphicon glyphicon-ok"></i></a></td>
+			{{else}}
+				<td class="approve"><a href=""><i class="glyphicon glyphicon-ok"></i></a></td>
+			{{/if}}
+			{{#if $eq approval 'pending'}}
+				<td class="pending"><i class="glyphicon glyphicon-refresh"></i></td>
+			{{/if}}
+			{{#if $eq approval false}}
+				<td class="rejected"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
+			{{else}}
+				<td class="reject"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>			
+			{{/if}}
+
+		{{/if}}
+	</tr>
+</template>
