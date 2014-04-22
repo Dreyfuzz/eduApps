@@ -26,10 +26,11 @@
 	<form id="new_app">
 	   	<div class="control-group">
 	   		<div class="controls">
-		   		<input type="text" name="name" id="new_app_name" placeholder="Enter app name">
+		   		<input type="text" name="name" id="new_app_name" placeholder="Enter app name" required>
 		   	   	<input type="text"
 		   	   	  pattern="^(https?:\/\/)?itunes.apple.com\/us\/app\S*$"
 		   	   	  data-validation-pattern-message="Must be a valid app store link"
+		   	   	  required 
 		   	   	  name="app store link" id="new_app_url"
 		   	   	  placeholder="Paste App store link">
 		   	   	<input type="submit" value="Submit for Review">

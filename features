@@ -5,4 +5,6 @@ show approved or rejected to users:done
 collect submitter email: submitter ID is collected, cannot yet display
 restrict to users @ctkschool: done
 require sign in to submit:done
-check for uniqueness
+check for uniqueness: done!
+validate blanks: done!
+doesn't autopublish: done!

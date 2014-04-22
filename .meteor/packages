@@ -4,11 +4,10 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 accounts-google
 jquery
 jqbootstrapvalidation
 authorization
 bootstrap-3
 handlebar-helpers
-accounts-ui-bootstrap-3
+accounts-ui-bootstrap-3-blaze

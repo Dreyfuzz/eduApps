@@ -1,5 +1,7 @@
 Apps = new Meteor.Collection("apps");
 
+Meteor.subscribe('apps');
+
 Template.apps.apps = function() {
   return Apps.find({},{sort:{'submittedOn':-1}});
 };
@@ -12,9 +14,21 @@ Template.apps.events({
 
     appUrl.search(/https:\/\/itunes.apple.com\/us\/app/);
 
-    Meteor.call("addApp",appName,appUrl);
-    document.getElementById("new_app_name").value ="";
-    document.getElementById("new_app_url").value ="";
+    console.log('Checking App');
+
+    Meteor.call("exists",appUrl, function(_, itExists) {
+      if(!itExists) {
+        Meteor.call("addApp",appName,appUrl);
+        document.getElementById("new_app_name").value ="";
+        document.getElementById("new_app_url").value ="";
+      }
+      else {
+        $('.alert').remove();
+        $('.control-group').append('<p class="alert alert-danger" id="repeat">This app has already been submitted.</p>').delay(2000).queue(function(next){
+          $('.alert').fadeOut('slow');
+        });
+      }
+    });
   },
 
   'click .remove':function(event) {

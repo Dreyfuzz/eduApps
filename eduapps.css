@@ -64,3 +64,8 @@ td {
 .pending {
 	font-size: 1em;
 }
+
+#login-buttons-message-dialog {
+	text-align: center;
+	padding-bottom: 20px;
+}
