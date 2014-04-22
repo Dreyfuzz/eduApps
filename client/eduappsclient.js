@@ -47,6 +47,10 @@ Template.apps.events({
   }
 });
 
+Template.app.rendered = function(){
+  $('.glyphicon').tooltip();
+};
+
 // Template.apps.helpers({
 //   submitter : function(app){
 //     submitter = Meteor.user.findOne({"_id" : app.submittedBy});

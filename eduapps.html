@@ -64,13 +64,13 @@
 		{{#unless isInRole 'admin'}}
 			<td>
 				{{#if $eq approval true}}
-					<i class="glyphicon glyphicon-ok" data-toggle="tooltip" title="App Approved!" data-placement="auto"></i>
+					<i class="glyphicon glyphicon-ok" data-toggle="tooltip" title="App Approved!" data-placement="right"></i>
 				{{/if}}
 				{{#if $eq approval false}}
-					<i class="glyphicon glyphicon-remove" data-toggle="tooltip" title="App is not educational!" data-placement="auto"></i>
+					<i class="glyphicon glyphicon-remove" data-toggle="tooltip" title="App is not educational!" data-placement="right"></i>
 				{{/if}}
 				{{#if $eq approval 'pending'}}
-					<i class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="App is Pending Review." data-placement="auto"></i>
+					<i class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="App is Pending Review." data-placement="right"></i>
 				{{/if}}
 			</td>
 		{{/unless}}
